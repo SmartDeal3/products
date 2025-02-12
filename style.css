@@ -1,58 +1,63 @@
 /* تنسيق عام للجسم */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #222222; /* خلفية داكنة */
+    background-color: #1a1a1a; /* خلفية داكنة أكثر */
     margin: 0;
-    padding: 30px;
-    color: #f1f1f1; /* النص بلون فاتح */
+    padding: 40px;
+    color: #eaeaea; /* نص بلون فاتح وأقل حدة */
 }
 
 /* تنسيق العناوين */
 h1, h2, h3 {
     font-weight: bold;
-    color: #f39c12; /* لون ذهبي */
+    color: #f1c40f; /* ذهبي دافئ */
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     margin-bottom: 20px;
+    animation: fadeIn 1s ease-in-out;
 }
 
 /* تصميم المقالات مع تأثير الظلال */
 .container {
     max-width: 1100px;
     margin: auto;
-    background: #333333; /* خلفية داكنة */
+    background: #333333; 
     padding: 40px;
-    border-left: 5px solid #f39c12; /* خط جانبي ذهبي */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    border-left: 5px solid #f1c40f; 
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
     border-radius: 15px;
+    transition: all 0.3s ease-in-out;
+}
+
+.container:hover {
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5); /* تأثير على hover */
 }
 
 /* تنسيق الأزرار */
 .btn-primary {
-    background-color: #e74c3c; /* لون أحمر */
-    border: 2px solid #e74c3c;
-    padding: 12px 25px;
+    background-color: #e74c3c;
+    border: none;
+    padding: 14px 28px;
     font-size: 18px;
     border-radius: 50px;
     cursor: pointer;
-    transition: all 0.4s ease-in-out;
+    transition: background-color 0.4s ease, transform 0.3s ease;
 }
 
 .btn-primary:hover {
-    background-color: #c0392b; /* ظل أغمق عند المرور */
-    border-color: #c0392b;
-    transform: scale(1.1);
+    background-color: #c0392b; 
+    transform: translateY(-5px); /* رفع الزر قليلاً عند التمرير */
 }
 
 /* تنسيق الفوتر */
 footer {
-    margin-top: 30px;
-    background-color: #1e1e1e;
-    color: #ecf0f1;
+    margin-top: 40px;
+    background-color: #222222;
+    color: #bdc3c7;
     padding: 20px;
     text-align: center;
     font-size: 16px;
-    border-top: 2px solid #e74c3c; /* خط علوي أحمر */
+    border-top: 2px solid #f39c12;
 }
 
 /* تنسيق الصور */
@@ -60,12 +65,13 @@ img {
     max-width: 100%;
     height: auto;
     border-radius: 10px;
-    filter: brightness(80%);
-    transition: filter 0.3s ease-in-out;
+    filter: brightness(85%);
+    transition: filter 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 img:hover {
     filter: brightness(100%);
+    transform: scale(1.05); /* تكبير الصورة عند التمرير */
 }
 
 /* تحسين تخطيط المقالات */
@@ -79,7 +85,7 @@ img:hover {
 }
 
 .article-container h2 {
-    color: #f39c12;
+    color: #f1c40f;
     margin-bottom: 15px;
 }
 
@@ -87,4 +93,20 @@ img:hover {
     line-height: 1.8;
     font-size: 16px;
     margin-bottom: 15px;
+}
+
+/* إضافة تأثيرات تحريك عند التمرير */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container, .article-container {
+    animation: fadeIn 1.5s ease-out;
 }
